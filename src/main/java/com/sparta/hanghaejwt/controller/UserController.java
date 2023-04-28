@@ -22,13 +22,9 @@ public class UserController {
     private final UserService userService;
 
     // 회원 가입
-    // 요청에 password, username 이 필요하기 때문에 RequestBody 사용 + password 에 유효성검사해야해서 @Valid 사용
-    // SignupRequestDto 에서 필요로 하는 것 : username, password, adminToken(없으면 일반유저)
     @PostMapping("/signup")
     public MessageStatusResponseDto signup(@RequestBody @Valid SignupRequestDto signupRequestDto) {
         return userService.signup(signupRequestDto);
-
-
     }
 
     // 로그인
