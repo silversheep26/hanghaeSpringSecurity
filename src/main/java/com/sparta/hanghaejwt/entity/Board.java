@@ -15,14 +15,6 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 public class Board extends Timestamped {
-    // JPA 로 테이블과 엔티티 매핑할 때 식별자로 사용할 필드 위에 @Id를 붙여서
-    // PK(Primary Key)를 나타낸다.
-    // GeneratedValue 에서 IDENTITY : 기본키 생성을 데이터 베이스에 위임
-    // SEQUENCE : 데이터 베이스 Sequence Object 를 사용  DB Sequence 는 유일한 값을 순서대로 생성하는 특별한 데이터베이스오브젝트
-    // DB 가 자동으로 숫자를 generate
-    // AUTO : 기본 설정 값, 방언에 따라 세가지 다른 전략을 자동으로 지정
-    // 기본 키 제약 조건 : NULL 이 아니다. 유일하다. 변하면 안 된다.
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "board_id")
@@ -33,13 +25,6 @@ public class Board extends Timestamped {
     @Column(nullable = false)
     private String title;
 
-    // 가입 정보와 게시판 정보가 함께 저장 되어야 하기 때문에
-    // join 사용
-    // uer_id 통해 Board 와 User 가 연관 됨을 명시
-    // 즉시로딩 EAGER, 지연로딩 LAZY
-    // ManyToOne : 외래키 이곳에 존재, Board 가 연관관계 주인
-    // user_id : 필드명_참조하는테이블의컬럼명
-    // ManyToOne, OneToMany : 즉시로딩, OneToMany, ManyToMany : 지연로딩 추천
     @JsonIgnore
     @JoinColumn(name = "user_id")
     @ManyToOne(fetch = FetchType.LAZY)
@@ -62,7 +47,6 @@ public class Board extends Timestamped {
         this.title = requestDto.getTitle();
     }
 }
-
 
 //    @JsonIgnore  // 컨트롤러에서 리턴할 때 이 부분만 빼고 보내준다.
 //    // 또한 데이터 받아올 때에도 빼고 받아온다. -> 그래서 Dto 에도 password 필드 넣을 것

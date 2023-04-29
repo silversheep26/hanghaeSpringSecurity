@@ -25,21 +25,6 @@ public class MessageStatusResponseDto {
         this.msg = msg;
         this.status = String.valueOf(status);
     }
-//
-//    // static 정적 메소드
-//    // 로그인 성공시 상태코드와 메세지 전달
-//    public static MessageStatusResponseDto setLogin() {
-//        return new MessageStatusResponseDto(200, "로그인 성공");
-//    }
-//
-//    // 게시물 삭제 성공시 상태 코드와 메세지 전달
-//    public static ResponseEntity<String> deleteDto(String msg, HttpStatus status){
-//        return new ResponseEntity<>(200, "삭제 완료");
-//    }
-//
-//    public static ResponseEntity<String> deleteComment(String msg, HttpStatus status) {
-//        return new ResponseEntity<>(msg, status);
-//    }
 }
 
 

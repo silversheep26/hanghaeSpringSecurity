@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
@@ -49,7 +50,7 @@ public class UserService {
         } else if (strRole.equals("null")) {
             role = UserRoleEnum.USER;
         } else if (!signupRequestDto.getAdminToken().equals(ADMIN_TOKEN)) {
-            return new MessageStatusResponseDto("관리자 암호가 틀렸습니다.", HttpStatus.BAD_REQUEST);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "관리자 암호가 틀렸습니다.");
         }
 
         User user = new User(username, password, role);
