@@ -1,6 +1,5 @@
 ## [항해] 제출 과제 4  
-## with Gengar
-https://github.com/gengar0917  
+ 
 
 1. 회원 가입 API
     - username, password를 Client에서 전달받기
