@@ -57,12 +57,7 @@
     - 토큰을 검사한 후, 유효한 토큰이면서 해당 사용자가 작성한 게시글만 삭제 가능
     - 선택한 게시글을 삭제하고 Client 로 성공했다는 메시지, 상태코드 반환하기
   
-## ERD 설계
-  
-![erd설계](https://user-images.githubusercontent.com/122955367/233663415-a3ee3b65-3a73-4138-93dc-aa166f51bc0f.png)  
-## API 명세서 
-  
-https://documenter.getpostman.com/view/26921017/2s93Y3vMEp#4b2717f9-46ae-4dee-92a9-2a5af806abef  
+
 ## 생각해보기
 
 1. JWT를 사용하여 인증/인가를 구현 했을 때의 장점은 무엇일까요?  
